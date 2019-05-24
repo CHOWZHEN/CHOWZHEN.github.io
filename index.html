@@ -52,7 +52,7 @@
 				controls = new THREE.DeviceOrientationControls( camera );
 
 				scene = new THREE.Scene();
-               light = new THREE.AmbientLight(0xffffff, 0.35);
+               light = new THREE.AmbientLight(0xffffff, 1);
                scene.add(light);
 				var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
 				// invert the geometry on the x-axis so that all of the faces point inward
