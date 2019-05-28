@@ -31,13 +31,13 @@ THREE.DeviceOrientationControls = function ( object ) {
 
 		scope.screenOrientation = window.orientation || 0;
 
-	};
+	};//判断屏幕方向是否发生变化
 
 	// The angles alpha, beta and gamma form a set of intrinsic Tait-Bryan angles of type Z-X'-Y''
 
 	var setObjectQuaternion = function () {
 
-		var zee = new THREE.Vector3( 0, 0, 1 );
+		var zee = new THREE.Vector3( 0, 0, 1 );//新建一个指向正z轴的向量
 
 		var euler = new THREE.Euler();
 
@@ -49,7 +49,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 
 			euler.set( beta, alpha, - gamma, 'YXZ' ); // 'ZXY' for the device, but 'YXZ' for us
 
-			quaternion.setFromEuler( euler ); // orient the device
+			quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
 
 			quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
 
@@ -87,7 +87,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 
 		if ( device ) {
 
-			var alpha = device.alpha ? THREE.Math.degToRad( device.alpha ) + scope.alphaOffset : 0; // Z
+			var alpha = device.alpha ? THREE.Math.degToRad( device.alpha ): 0; // Z
 
 			var beta = device.beta ? THREE.Math.degToRad( device.beta ) : 0; // X'
 
