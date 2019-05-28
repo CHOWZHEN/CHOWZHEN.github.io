@@ -5,7 +5,23 @@
  * W3C Device Orientation control (http://w3c.github.io/deviceorientation/spec-source-orientation.html)
  */
  
-//从欧拉角得到四元数
+
+THREE.DeviceOrientationControls = function ( object ) {
+
+	var scope = this;
+
+	this.object = object;
+	this.object.rotation.reorder( 'YXZ' );
+
+	this.enabled = true;
+
+	this.deviceOrientation = {};
+	this.screenOrientation = 0;
+
+	this.alphaOffset = 0; // radians
+	
+	//从欧拉角得到四元数
+	
 	var function getBaseQuaternion(beta,gamma,alpha) {
 	var x = beta  ? beta*d : 0; // 取beta得弧度值
 	var y = gamma? gamma * d : 0; // gamma value
@@ -26,21 +42,8 @@
 	 var q = new THREE.Quaternion();
      return q.setFromAxisAngle( xuan, w );
 
-	}
+	};
  
-THREE.DeviceOrientationControls = function ( object ) {
-
-	var scope = this;
-
-	this.object = object;
-	this.object.rotation.reorder( 'YXZ' );
-
-	this.enabled = true;
-
-	this.deviceOrientation = {};
-	this.screenOrientation = 0;
-
-	this.alphaOffset = 0; // radians
 
 	var onDeviceOrientationChangeEvent = function ( event ) {
 
