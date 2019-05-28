@@ -63,6 +63,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	}();
 	
 	//从欧拉角得到四元数
+	/*
 	var  getBaseQuaternion = function() {
 	var x = beta  ? beta*d : 0; // 取beta得弧度值
 	var y = alpha ? alpha * d : 0; // gamma value
@@ -86,6 +87,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	  q.setFromAxisAngle( xuan, w );
 };
 	}();
+	*/
 	
 	/*
  //四元数乘法
