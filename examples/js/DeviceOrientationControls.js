@@ -49,9 +49,9 @@ THREE.DeviceOrientationControls = function ( object ) {
 
 			euler.set( beta, alpha, - gamma, 'YXZ' ); // 'ZXY' for the device, but 'YXZ' for us
 			
-			//quaternion=getBaseQuaternion( beta, alpha, - gamma);
+			quaternion=getBaseQuaternion( beta, alpha, - gamma);
 			
-			quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
+			//quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
 			//quaternion=quaternionMultiply( quaternion,q1); 
             //quaternion=quaternionMultiply( quaternion, q0.setFromAxisAngle( zxuan, - orient )); 
 			quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
@@ -63,7 +63,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	}();
 	
 	//从欧拉角得到四元数
-	/*var  getBaseQuaternion = function() {
+	var  getBaseQuaternion = function() {
 	var x = beta  ? beta*d : 0; // 取beta得弧度值
 	var y = alpha ? alpha * d : 0; // gamma value
 	var z = -gamma ? -gamma * d : 0; // alpha value
@@ -85,8 +85,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	return function (beta,gamma,alpha) {
 	  q.setFromAxisAngle( xuan, w );
 };
-
-	}();*/
+	}();
 	
 	/*
  //四元数乘法
