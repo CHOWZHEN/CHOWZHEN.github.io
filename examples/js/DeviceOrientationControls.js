@@ -74,12 +74,30 @@ THREE.DeviceOrientationControls = function ( object ) {
 
 		return function ( quaternion, alpha, beta, gamma, orient ) {
 
-			euler.set( beta, gamma, alpha, 'YXZ' ); // 'ZXY' for the device, but 'YXZ' for us
-			
+		//	euler.set( beta, gamma, alpha, 'YXZ' ); // 'ZXY' for the device, but 'YXZ' for us
+			euler.set( beta, alpha, -gamma, 'YXZ' ); 
 			//quaternion.copy(getBaseQuaternion( beta, alpha, - gamma));
 			
+			 var d = Math.PI / 180;
+	         var x = beta  ? beta*d : 0; // 取beta得弧度值
+	         var y = alpha? alpha* d : 0; // gamma value
+	         var z = -gamma ? -gamma * d : 0; // alpha value
+
+	         var cX = Math.cos( x/2 );
+	         var cY = Math.cos( y/2 );
+             var cZ = Math.cos( z/2 );
+	         var sX = Math.sin( x/2 );
+	         var sY = Math.sin( y/2 );
+	         var sZ = Math.sin( z/2 );
+
+	         var w = cX * cY * cZ - sX * sY * sZ;
+	         var x = sX * cY * cZ - cX * sY * sZ;
+	         var y = cX * sY * cZ + sX * cY * sZ;
+	         var z = cX * cY * sZ + sX * sY * cZ;
+	         var xuan = new THREE.Vector3( x, y, z );
+			 quaternion.setFromAxisAngle( xuan, w );
           
-	        quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
+	        //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
 			//quaternion=quaternionMultiply( quaternion,q1); 
             //quaternion=quaternionMultiply( quaternion, q0.setFromAxisAngle( zxuan, - orient )); 
 			quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
