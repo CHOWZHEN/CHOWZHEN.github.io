@@ -76,10 +76,10 @@ THREE.DeviceOrientationControls = function ( object ) {
 
 			euler.set( beta, alpha, - gamma, 'YXZ' ); // 'ZXY' for the device, but 'YXZ' for us
 			
-			quaternion.copy(getBaseQuaternion( beta, alpha, - gamma));
+			//quaternion.copy(getBaseQuaternion( beta, alpha, - gamma));
 			
           
-	        //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
+	        quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
 			//quaternion=quaternionMultiply( quaternion,q1); 
             //quaternion=quaternionMultiply( quaternion, q0.setFromAxisAngle( zxuan, - orient )); 
 			quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
