@@ -85,15 +85,15 @@ THREE.DeviceOrientationControls = function ( object ) {
 		   var cX = Math.cos( x/2 );
 	       var cY = Math.cos( y/2 );
 	       var cZ = Math.cos( z/2 );
-	var sX = Math.sin( x/2 );
-	var sY = Math.sin( y/2 );
-	var sZ = Math.sin( z/2 );
+	       var sX = Math.sin( x/2 );
+	       var sY = Math.sin( y/2 );
+	       var sZ = Math.sin( z/2 );
 
-	var w1 = cX * cY * cZ - sX * sY * sZ;
-	var x1 = sX * cY * cZ - cX * sY * sZ;
-	var y1 = cX * sY * cZ + sX * cY * sZ;
-	var z1 = cX * cY * sZ + sX * sY * cZ;
-	        var xuan = new THREE.Vector3( x1, y1, z1 );
+	       var w1 = cX * cY * cZ - sX * sY * sZ;
+	       var x1 = sX * cY * cZ - cX * sY * sZ;
+	       var y1 = cX * sY * cZ + sX * cY * sZ;
+	       var z1 = cX * cY * sZ + sX * sY * cZ;
+	       var xuan = new THREE.Vector3( x1, y1, z1 );
 			 quaternion.setFromAxisAngle( xuan, w1 );
           
 	        //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
