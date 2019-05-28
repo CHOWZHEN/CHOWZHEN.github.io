@@ -63,7 +63,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	}();
 	
 	//从欧拉角得到四元数
-	var  getBaseQuaternion = function() {
+	/*var  getBaseQuaternion = function() {
 	var x = beta  ? beta*d : 0; // 取beta得弧度值
 	var y = alpha ? alpha * d : 0; // gamma value
 	var z = -gamma ? -gamma * d : 0; // alpha value
@@ -86,9 +86,9 @@ THREE.DeviceOrientationControls = function ( object ) {
 	  q.setFromAxisAngle( xuan, w );
 };
 
-	}();
+	}();*/
 	
-	
+	/*
  //四元数乘法
  var function quaternionMultiply( a, b ) {
 	var qax = a._x, qay = a._y, qaz = a._z, qaw = a._w;
@@ -105,7 +105,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	var q = new THREE.Quaternion();
 	return q.setFromAxisAngle( xuan, w );
 }
-	
+	*/
 
 	this.connect = function () {
 
