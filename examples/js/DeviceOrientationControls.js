@@ -4,7 +4,20 @@
  *
  * W3C Device Orientation control (http://w3c.github.io/deviceorientation/spec-source-orientation.html)
  */
-
+ var function quaternionMultiply( a, b ) {
+	var qax = a._x, qay = a._y, qaz = a._z, qaw = a._w;
+	var qbx = b._x, qby = b._y, qbz = b._z, qbw = b._w;
+	//var w = a[0] * b[0] - a[1] * b[1] - a[2] * b[2] - a[3] * b[3];
+	//var x = a[1] * b[0] + a[0] * b[1] + a[2] * b[3] - a[3] * b[2];
+	//var y = a[2] * b[0] + a[0] * b[2] + a[3] * b[1] - a[1] * b[3];
+	//var z = a[3] * b[0] + a[0] * b[3] + a[1] * b[2] - a[2] * b[1];
+    var x = qax * qbw + qaw * qbx + qay * qbz - qaz * qby;
+    var y = qay * qbw + qaw * qby + qaz * qbx - qax * qbz;
+    var z = qaz * qbw + qaw * qbz + qax * qby - qay * qbx;
+	var w = qaw * qbw - qax * qbx - qay * qby - qaz * qbz;
+	var q= new THREE.Quaternion(x, y, z, w );
+	return q;
+}
 
 THREE.DeviceOrientationControls = function ( object ) {
 
@@ -78,6 +91,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 			euler.set( beta, alpha, -gamma, 'YXZ' ); 
 			//quaternion.copy(getBaseQuaternion( beta, alpha, - gamma));
 			
+			//欧拉角转化为四元数
 	         var x = beta;// 取beta得弧度值
 	         var y = alpha; // gamma value
 	         var z = -gamma; // alpha value
@@ -95,11 +109,14 @@ THREE.DeviceOrientationControls = function ( object ) {
 		   var w1 = c1 * c2 * c3 + s1 * s2 * s3;
 	       var q3 = new THREE.Quaternion(x1, y1, z1, w1 );
 		   quaternion.copy(q3);
-            
-	        //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
-			//quaternion=quaternionMultiply( quaternion,q1); 
-            //quaternion=quaternionMultiply( quaternion, q0.setFromAxisAngle( zxuan, - orient )); 
-			quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
+		   //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
+		   
+		   
+		   //四元数乘法
+		  
+            quaternion.copy(quaternionMultiply( quaternion,q1)); 
+         
+			//quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
 
 			quaternion.multiply( q0.setFromAxisAngle( zxuan, - orient ) ); // adjust for screen orientation
 
