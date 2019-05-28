@@ -111,7 +111,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 			
 			
 			//调整屏幕坐标
-			
+			/*
 			q0.setFromAxisAngle( zxuan, - orient );
 			var qcx =quaternion._x, qcy =quaternion._y, qcz =quaternion._z, qcw = quaternion._w;
 	        var qdx = q0._x, qdy = q0._y, qdz = q0._z, qdw = q0._w;
@@ -121,7 +121,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	        var w3 = qcw * qdw - qcx * qdx - qcy * qdy - qcz * qdz;
 		    var q5 = new THREE.Quaternion(x3, y3, z3, w3 );
 		    quaternion.copy(q5);
-		    
+		    */
          
 			//quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
             
