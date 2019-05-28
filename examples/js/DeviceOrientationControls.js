@@ -78,10 +78,9 @@ THREE.DeviceOrientationControls = function ( object ) {
 			euler.set( beta, alpha, -gamma, 'YXZ' ); 
 			//quaternion.copy(getBaseQuaternion( beta, alpha, - gamma));
 			
-			 var d = Math.PI / 180;
-	         var x = beta  ? beta*d : 0; // 取beta得弧度值
-	         var y = alpha? alpha* d : 0; // gamma value
-	         var z = -gamma ? -gamma * d : 0; // alpha value
+	         var x = beta;// 取beta得弧度值
+	         var y = alpha; // gamma value
+	         var z = -gamma; // alpha value
 			 
 		     var cos = Math.cos;
 		     var sin = Math.sin;
@@ -95,11 +94,11 @@ THREE.DeviceOrientationControls = function ( object ) {
 		    var s3 = sin( z / 2 );
 			
 
-	        var x = s1 * c2 * c3 + c1 * s2 * s3;
-			var y = c1 * s2 * c3 - s1 * c2 * s3;
-			var z = c1 * c2 * s3 + s1 * s2 * c3;
-			var w = c1 * c2 * c3 - s1 * s2 * s3;
-	        var xuan = new THREE.Vector3( x, y, z );
+	        var _x = s1 * c2 * c3 + c1 * s2 * s3;
+			var _y = c1 * s2 * c3 - s1 * c2 * s3;
+			var _z = c1 * c2 * s3 + s1 * s2 * c3;
+			var _w = c1 * c2 * c3 - s1 * s2 * s3;
+	        var xuan = new THREE.Vector3( _x, _y, _z );
 			 quaternion.setFromAxisAngle( xuan, w );
           
 	        //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
