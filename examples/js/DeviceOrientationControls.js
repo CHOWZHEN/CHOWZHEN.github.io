@@ -99,7 +99,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 			var z1 = c1 * c2 * s3 + s1 * s2 * c3;
 			var w1 = c1 * c2 * c3 - s1 * s2 * s3;
 	        var xuan = new THREE.Vector3( x1, y1, z1 );
-			 quaternion.setFromAxisAngle( xuan, w );
+			 quaternion.setFromAxisAngle( xuan, w1 );
           
 	        //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
 			//quaternion=quaternionMultiply( quaternion,q1); 
