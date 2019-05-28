@@ -82,7 +82,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	 var xuan = new THREE.Vector3( x, y, z );
 	  var q = new THREE.Quaternion();
 
-	return function ( alpha, beta, gamma) {
+	return function (beta,gamma,alpha) {
 	  q.setFromAxisAngle( xuan, w );
 };
 
