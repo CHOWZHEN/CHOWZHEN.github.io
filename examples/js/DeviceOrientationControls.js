@@ -82,22 +82,17 @@ THREE.DeviceOrientationControls = function ( object ) {
 	         var y = alpha; // gamma value
 	         var z = -gamma; // alpha value
 			 
-		     var cos = Math.cos;
-		     var sin = Math.sin;
+		   var cX = Math.cos( x/2 );
+	       var cY = Math.cos( y/2 );
+	       var cZ = Math.cos( z/2 );
+	var sX = Math.sin( x/2 );
+	var sY = Math.sin( y/2 );
+	var sZ = Math.sin( z/2 );
 
-		    var c1 = cos( x / 2 );
-		    var c2 = cos( y / 2 );
-		    var c3 = cos( z / 2 );
-
-		    var s1 = sin( x / 2 );
-		    var s2 = sin( y / 2 );
-		    var s3 = sin( z / 2 );
-			
-
-	        var x1 = s1 * c2 * c3 + c1 * s2 * s3;
-			var y1 = c1 * s2 * c3 - s1 * c2 * s3;
-			var z1 = c1 * c2 * s3 + s1 * s2 * c3;
-			var w1 = c1 * c2 * c3 - s1 * s2 * s3;
+	var w1 = cX * cY * cZ - sX * sY * sZ;
+	var x1 = sX * cY * cZ - cX * sY * sZ;
+	var y1 = cX * sY * cZ + sX * cY * sZ;
+	var z1 = cX * cY * sZ + sX * sY * cZ;
 	        var xuan = new THREE.Vector3( x1, y1, z1 );
 			 quaternion.setFromAxisAngle( xuan, w1 );
           
