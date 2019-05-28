@@ -23,6 +23,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	
 	//从欧拉角得到四元数
 	var function getBaseQuaternion(beta,gamma,alpha) {
+    var d = Math.PI / 180;
 	var x = beta  ? beta*d : 0; // 取beta得弧度值
 	var y = gamma? gamma * d : 0; // gamma value
 	var z = alpha ? alpha * d : 0; // alpha value
@@ -75,6 +76,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 			
 			quaternion.copy(getBaseQuaternion( beta, alpha, - gamma));
 			
+          
 	        //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
 			//quaternion=quaternionMultiply( quaternion,q1); 
             //quaternion=quaternionMultiply( quaternion, q0.setFromAxisAngle( zxuan, - orient )); 
