@@ -79,19 +79,17 @@ THREE.DeviceOrientationControls = function ( object ) {
 			euler.set( beta, alpha, -gamma, 'YXZ' ); 
 			//quaternion.copy(getBaseQuaternion( beta, alpha, - gamma));
 			
-			//欧拉角转化为四元数
-	         var x = beta;// 取beta得弧度值
-	         var y = alpha; // gamma value
-	         var z = -gamma; // alpha value
-			 
+	       //欧拉角转化为四元数
+	       var x = beta;// 取beta得弧度值
+	       var y = alpha; // gamma value
+	       var z = -gamma; // alpha value
 		   var c1 = Math.cos( x/2 );
 	       var c2 = Math.cos( y/2 );
 	       var c3 = Math.cos( z/2 );
 	       var s1 = Math.sin( x/2 );
 	       var s2 = Math.sin( y/2 );
 	       var s3 = Math.sin( z/2 );
-
-	   	   var x1 = s1 * c2 * c3 + c1 * s2 * s3;
+           var x1 = s1 * c2 * c3 + c1 * s2 * s3;
 		   var y1 = c1 * s2 * c3 - s1 * c2 * s3;
 		   var z1 = c1 * c2 * s3 - s1 * s2 * c3;
 		   var w1 = c1 * c2 * c3 + s1 * s2 * s3;
@@ -113,7 +111,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 			
 			
 			//调整屏幕坐标
-			/*
+			
 			q0.setFromAxisAngle( zxuan, - orient );
 			var qcx =quaternion._x, qcy =quaternion._y, qcz =quaternion._z, qcw = quaternion._w;
 	        var qdx = q0._x, qdy = q0._y, qdz = q0._z, qdw = q0._w;
@@ -123,7 +121,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	        var w3 = qcw * qdw - qcx * qdx - qcy * qdy - qcz * qdz;
 		    var q5 = new THREE.Quaternion(x3, y3, z3, w3 );
 		    quaternion.copy(q5);
-		    */
+		    
          
 			//quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
             
