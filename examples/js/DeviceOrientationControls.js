@@ -20,8 +20,8 @@ THREE.DeviceOrientationControls = function ( object ) {
 
 	this.alphaOffset = 0; // radians
 	
-	//从欧拉角得到四元数
 	
+	//从欧拉角得到四元数
 	var function getBaseQuaternion(beta,gamma,alpha) {
 	var x = beta  ? beta*d : 0; // 取beta得弧度值
 	var y = gamma? gamma * d : 0; // gamma value
@@ -38,8 +38,8 @@ THREE.DeviceOrientationControls = function ( object ) {
 	var x = sX * cY * cZ - cX * sY * sZ;
 	var y = cX * sY * cZ + sX * cY * sZ;
 	var z = cX * cY * sZ + sX * sY * cZ;
-	 var xuan = new THREE.Vector3( x, y, z );
-	 var q = new THREE.Quaternion();
+	var xuan = new THREE.Vector3( x, y, z );
+	var q = new THREE.Quaternion();
      return q.setFromAxisAngle( xuan, w );
 
 	};
