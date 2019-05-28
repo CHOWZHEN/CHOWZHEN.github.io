@@ -4,20 +4,7 @@
  *
  * W3C Device Orientation control (http://w3c.github.io/deviceorientation/spec-source-orientation.html)
  */
- var function quaternionMultiply( a, b ) {
-	var qax = a._x, qay = a._y, qaz = a._z, qaw = a._w;
-	var qbx = b._x, qby = b._y, qbz = b._z, qbw = b._w;
-	//var w = a[0] * b[0] - a[1] * b[1] - a[2] * b[2] - a[3] * b[3];
-	//var x = a[1] * b[0] + a[0] * b[1] + a[2] * b[3] - a[3] * b[2];
-	//var y = a[2] * b[0] + a[0] * b[2] + a[3] * b[1] - a[1] * b[3];
-	//var z = a[3] * b[0] + a[0] * b[3] + a[1] * b[2] - a[2] * b[1];
-    var x = qax * qbw + qaw * qbx + qay * qbz - qaz * qby;
-    var y = qay * qbw + qaw * qby + qaz * qbx - qax * qbz;
-    var z = qaz * qbw + qaw * qbz + qax * qby - qay * qbx;
-	var w = qaw * qbw - qax * qbx - qay * qby - qaz * qbz;
-	var q= new THREE.Quaternion(x, y, z, w );
-	return q;
-},
+
 
 THREE.DeviceOrientationControls = function ( object ) {
 
@@ -73,6 +60,22 @@ THREE.DeviceOrientationControls = function ( object ) {
 
 	};
 */
+
+ var function quaternionMultiply( a, b ) {
+	var qax = a._x, qay = a._y, qaz = a._z, qaw = a._w;
+	var qbx = b._x, qby = b._y, qbz = b._z, qbw = b._w;
+	//var w = a[0] * b[0] - a[1] * b[1] - a[2] * b[2] - a[3] * b[3];
+	//var x = a[1] * b[0] + a[0] * b[1] + a[2] * b[3] - a[3] * b[2];
+	//var y = a[2] * b[0] + a[0] * b[2] + a[3] * b[1] - a[1] * b[3];
+	//var z = a[3] * b[0] + a[0] * b[3] + a[1] * b[2] - a[2] * b[1];
+    var x = qax * qbw + qaw * qbx + qay * qbz - qaz * qby;
+    var y = qay * qbw + qaw * qby + qaz * qbx - qax * qbz;
+    var z = qaz * qbw + qaw * qbz + qax * qby - qay * qbx;
+	var w = qaw * qbw - qax * qbx - qay * qby - qaz * qbz;
+	var q= new THREE.Quaternion(x, y, z, w );
+	return q;
+};
+
 	// The angles alpha, beta and gamma form a set of intrinsic Tait-Bryan angles of type Z-X'-Y''
 
 	var setObjectQuaternion = function () {
