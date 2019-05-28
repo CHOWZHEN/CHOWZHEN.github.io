@@ -51,7 +51,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 			
 			quaternion=getBaseQuaternion( beta, alpha, - gamma);
 			
-			//quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
+	        //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
 			//quaternion=quaternionMultiply( quaternion,q1); 
             //quaternion=quaternionMultiply( quaternion, q0.setFromAxisAngle( zxuan, - orient )); 
 			quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
@@ -64,9 +64,9 @@ THREE.DeviceOrientationControls = function ( object ) {
 	
 	//从欧拉角得到四元数
 	
-	var  function getBaseQuaternion(beta,gamma,alpha) {
+	var  getBaseQuaternion = function() {
 	var x = beta  ? beta*d : 0; // 取beta得弧度值
-	var y = gamma ? gamma * d : 0; // gamma value
+	var y = gamma? gamma * d : 0; // gamma value
 	var z = alpha ? alpha * d : 0; // alpha value
 
 	var cX = Math.cos( x/2 );
@@ -80,11 +80,13 @@ THREE.DeviceOrientationControls = function ( object ) {
 	var x = sX * cY * cZ - cX * sY * sZ;
 	var y = cX * sY * cZ + sX * cY * sZ;
 	var z = cX * cY * sZ + sX * sY * cZ;
-    var xuan = new THREE.Vector3( x, y, z );
-	var q = new THREE.Quaternion();
-    q.setFromAxisAngle( xuan, w );
-    return q;
-	}
+	 var xuan = new THREE.Vector3( x, y, z );
+	  var q = new THREE.Quaternion();
+
+	return function (beta,gamma,alpha) {
+	  q.setFromAxisAngle( xuan, w );
+};
+	}();
 	
 	
 	/*
