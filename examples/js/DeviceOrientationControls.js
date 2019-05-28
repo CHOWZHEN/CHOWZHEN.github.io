@@ -49,7 +49,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 
 			euler.set( beta, alpha, - gamma, 'YXZ' ); // 'ZXY' for the device, but 'YXZ' for us
 			
-			quaternion=getBaseQuaternion( beta, alpha, - gamma);
+			quaternion.copy(getBaseQuaternion( beta, alpha, - gamma));
 			
 	        //quaternion.setFromEuler( euler ); // orient the device从欧拉角得到四元数
 			//quaternion=quaternionMultiply( quaternion,q1); 
@@ -81,12 +81,10 @@ THREE.DeviceOrientationControls = function ( object ) {
 	var y = cX * sY * cZ + sX * cY * sZ;
 	var z = cX * cY * sZ + sX * sY * cZ;
 	 var xuan = new THREE.Vector3( x, y, z );
-	  var q = new THREE.Quaternion();
+	 var q = new THREE.Quaternion();
+     return q.setFromAxisAngle( xuan, w );
 
-	return function (beta,gamma,alpha) {
-	  q.setFromAxisAngle( xuan, w );
-};
-	}();
+	}
 	
 	
 	/*
