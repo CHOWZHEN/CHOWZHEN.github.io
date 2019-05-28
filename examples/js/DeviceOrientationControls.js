@@ -66,8 +66,8 @@ THREE.DeviceOrientationControls = function ( object ) {
 	
 	var  function getBaseQuaternion(beta,gamma,alpha) {
 	var x = beta  ? beta*d : 0; // 取beta得弧度值
-	var y = alpha ? alpha * d : 0; // gamma value
-	var z = -gamma ? -gamma * d : 0; // alpha value
+	var y = gamma ? gamma * d : 0; // gamma value
+	var z = alpha ? alpha * d : 0; // alpha value
 
 	var cX = Math.cos( x/2 );
 	var cY = Math.cos( y/2 );
