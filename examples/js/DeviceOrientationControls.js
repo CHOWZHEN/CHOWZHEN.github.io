@@ -37,7 +37,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	};//判断屏幕方向是否发生变化
 	
 	
-	var function getBaseQuaternion(beta,gamma,alpha) {
+	/*var function getBaseQuaternion(beta,gamma,alpha) {
     var d = Math.PI / 180;
 	var x = beta  ? beta*d : 0; // 取beta得弧度值
 	var y = gamma? gamma * d : 0; // gamma value
@@ -59,7 +59,7 @@ THREE.DeviceOrientationControls = function ( object ) {
      return q.setFromAxisAngle( xuan, w );
 
 	};
-
+*/
 	// The angles alpha, beta and gamma form a set of intrinsic Tait-Bryan angles of type Z-X'-Y''
 
 	var setObjectQuaternion = function () {
