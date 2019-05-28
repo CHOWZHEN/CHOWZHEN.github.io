@@ -17,7 +17,7 @@
 	var w = qaw * qbw - qax * qbx - qay * qby - qaz * qbz;
 	var q= new THREE.Quaternion(x, y, z, w );
 	return q;
-}
+},
 
 THREE.DeviceOrientationControls = function ( object ) {
 
