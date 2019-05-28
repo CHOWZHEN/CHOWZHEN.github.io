@@ -110,11 +110,20 @@ THREE.DeviceOrientationControls = function ( object ) {
 	        var w2 = qaw * qbw - qax * qbx - qay * qby - qaz * qbz;
 		    var q4 = new THREE.Quaternion(x2, y2, z2, w2 );
 		    quaternion.copy(q4);
+			
+		    var qcx =quaternion._x, qcy =quaternion._y, qcz =quaternion._z, qcw = quaternion._w;
+	        var qdx = q0._x, qdy = q0._y, qdz = q0._z, qdw = q0._w;
+            var x3 = qcx * qdw + qcw * qdx + qcy * qdz - qcz * qdy;
+            var y3 = qcy * qdw + qcw * qdy + qcz * qdx - qcx * qdz;
+            var z3 = qcz * qdw + qcw * qdz + qcx * qdy - qcy * qdx;
+	        var w3 = qcw * qdw - qcx * qdx - qcy * qdy - qcz * qdz;
+		    var q5 = new THREE.Quaternion(x3, y3, z3, w3 );
+		    quaternion.copy(q5);
 		 */
          
 			//quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
             
-			quaternion.multiply( q0.setFromAxisAngle( zxuan, - orient ) ); // adjust for screen orientation
+			//quaternion.multiply( q0.setFromAxisAngle( zxuan, - orient ) ); // adjust for screen orientation
 
 		};
 
