@@ -100,7 +100,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 		   
 		   //四元数乘法
 		   //调整世界坐标
-		   /*
+		   
 		   	var qax =quaternion._x, qay =quaternion._y, qaz =quaternion._z, qaw = quaternion._w;
 	        var qbx = q1._x, qby = q1._y, qbz = q1._z, qbw = q1._w;
             var x2 = qax * qbw + qaw * qbx + qay * qbz - qaz * qby;
@@ -122,7 +122,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 	        var w3 = qcw * qdw - qcx * qdx - qcy * qdy - qcz * qdz;
 		    var q5 = new THREE.Quaternion(x3, y3, z3, w3 );
 		    quaternion.copy(q5);
-		    */
+		    
          
 			//quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
             
