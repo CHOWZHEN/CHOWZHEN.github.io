@@ -123,6 +123,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 		    var q5 = new THREE.Quaternion(x3, y3, z3, w3 );
 		    quaternion.copy(q5);
 		    
+			
          
 			//quaternion.multiply( q1 ); // camera looks out the back of the device, not the top
             
