@@ -110,7 +110,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 		   
 		   //四元数乘法
 		   //调整世界坐标
-		   
+		   /*
 		   	var qax =quaternion._x, qay =quaternion._y, qaz =quaternion._z, qaw = quaternion._w;
 	        var qbx = q1._x, qby = q1._y, qbz = q1._z, qbw = q1._w;
             var x2 = qax * qbw + qaw * qbx + qay * qbz - qaz * qby;
@@ -120,7 +120,7 @@ THREE.DeviceOrientationControls = function ( object ) {
 		    var q4 = new THREE.Quaternion(x2, y2, z2, w2 );
 		    quaternion.copy(q4);
 			
-			
+			*/
 			//调整屏幕坐标
 			
 			q0.setFromAxisAngle( zxuan, - orient );
