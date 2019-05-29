@@ -81,8 +81,8 @@ THREE.DeviceOrientationControls = function ( object ) {
 			
 	       //欧拉角转化为四元数
 	       var x = beta;// 取beta得弧度值
-	       var y = gamma; // gamma value
-	       var z = alpha; // alpha value
+	       var y = alpha; // gamma value
+	       var z = -gamma; // alpha value
 		   var c1 = Math.cos( x/2 );
 	       var c2 = Math.cos( y/2 );
 	       var c3 = Math.cos( z/2 );
